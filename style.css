@@ -118,26 +118,46 @@ body { font-family: sans-serif;
     max-width: 400px; 
 }
 
-/* Works */
+/* --- Works 全体 --- */
+.works {
+    padding: 100px 0;
+}
+
 .work-item {
     display: flex;
-    align-items: center; /* 上下中央揃え */
-    justify-content: space-between; /* 両端に振り分け */
-    gap: 40px; /* 画像とテキストの間の余白 */
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
     margin-bottom: 120px;
     width: 100%;
 }
 
-/* 画像側 */
-.work-visual {
-    flex: 0 0 60%; /* 幅を60%で固定*/
-    max-width: 650px; /* 広がりすぎ防止 */
+.work-item.reverse {
+    flex-direction: row-reverse;
 }
 
-.work-item.reverse { 
-    flex-direction: 
-    row-reverse;
- }
+/* --- 画像部分の修正 --- */
+.work-visual {
+    flex: 0 0 55%; /* 画像の幅を固定 */
+}
+
+.work-single-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Figmaのような影をつける場合 */
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1)); 
+}
+
+/* --- 説明文部分 --- */
+.work-desc {
+    flex: 0 0 38%;
+    line-height: 1.8;
+    /* 必要に応じて枠線など追加 */
+    border: 1px solid #ff9a9e;
+    padding: 30px;
+    border-radius: 12px;
+}
 
 .visual-box { 
     position: relative; 
@@ -357,15 +377,22 @@ body { font-family: sans-serif;
         height: 180px;
     }
 
-    /* 5. Worksセクション：ここが一番重要 */
     .work-item, .work-item.reverse {
-        flex-direction: column; /* すべて縦並びに統一 */
-        gap: 20px;
+        flex-direction: column;
+        gap: 30px;
         margin-bottom: 80px;
     }
-    .work-visual {
+    
+    .work-visual, .work-desc {
+        flex: 0 0 100%;
         width: 100%;
     }
+
+    .work-desc {
+        padding: 20px;
+        font-size: 0.95rem;
+    }
+}
     .pc-img {
         width: 100%; /* PC画像を横幅いっぱいに */
     }
@@ -374,12 +401,6 @@ body { font-family: sans-serif;
         bottom: -10px;
         left: auto;
         right: 10px;
-    }
-    .work-desc {
-        width: 100%;
-        min-width: unset;
-        padding: 20px;
-        font-size: 0.9rem; /* 文字を少し小さくして読みやすく */
     }
 
     /* 6. Contactセクション */
